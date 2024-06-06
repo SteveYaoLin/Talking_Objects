@@ -13,10 +13,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-class histogram extends uvm_component;
+class histogram extends uvm_subscriber #(int);
    `uvm_component_utils(histogram);
 
    int rolls[int];
+   
 
    function new(string name, uvm_component parent);
       super.new(name,parent);

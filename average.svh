@@ -13,11 +13,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-class average extends uvm_component;
+class average extends uvm_subscriber #(int);
    `uvm_component_utils(average);
 
-   protected real dice_total;
-   protected real count;
+   real dice_total;
+   real count;
 
    function new(string name, uvm_component parent = null);
       super.new(name,parent);
@@ -31,8 +31,8 @@ class average extends uvm_component;
    endfunction : write
 
    function void report_phase(uvm_phase phase);
+      
       $display ("DICE AVERAGE: %2.1f",dice_total/count);
    endfunction : report_phase
+   
 endclass : average
-
-
